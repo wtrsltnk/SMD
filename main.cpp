@@ -1,14 +1,14 @@
 #include <windows.h>
 #include "data_structs.h"
 
-void main()
+int main(int argc, char* argv[])
 {
 	smd_model* pModel;
 
 	pModel = (smd_model*)calloc(1, sizeof(smd_model) );
 	ZeroMemory( pModel, sizeof(smd_model) );
 
-    int r = LoadSMD( "h:\\box.smd", pModel );
+    int r = LoadSMD( argv[1], pModel );
 
 	switch ( r )
 	{
@@ -36,4 +36,6 @@ void main()
 
 	if ( pModel )
         free(pModel);
+
+    return 0;
 }
